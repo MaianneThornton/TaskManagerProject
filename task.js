@@ -21,32 +21,43 @@ let response;
 response = prompt(`${startMenu}`);
 //TASKS MENU
 let tasks = [`Charge MacBook
-Master JavaScript`]
+Master JavaScript`];
+// REMOVE MENU
+// records the users response
+let remove;
+// stores removed tasks
+let removeTasks;
+// stores index of removed tasks
+let removeIndex;
 
 
 //START CODE
 while (true) {
   if (response.toUpperCase() === `CLOSE`) {
-    alert(`Thank you for using Task Manager!`)
+    alert(`Thank you for using Task Manager!`);
   } else if (response.toUpperCase() === `TASKS`) {
-    alert(tasks)
+    alert(tasks);
     prompt(startMenu);
     //TASK MANAGER INTERMEDIATE
   } else if (response.toUpperCase() === `NEW`) {
-    response = prompt(`Please enter the new task:`)
-    alert(`"${response}" has been added!`)
-    prompt(startMenu)
-    alert (`${tasks} \n${response}`)
-  }  else {
-    prompt(startMenu)
+    response = prompt(`Please enter the new task:`);
+    alert(`"${response}" has been added!`);
+    prompt(startMenu);
+    alert(`${tasks} \n${response}`);
+    // TASK MANAGER ADVANCED
+  } else if (response.toUpperCase() === `REMOVE`) {
+    while (true) {
+      for (let i = 0; i < tasks.length; i++) { //(initialization of my counter) i = index let index = 0; (condition) keep going until the following is false: (index) is less than the current number of tasks; (iteration) increment the counter by 1.
+        tasks = tasks.length + `${i + 1}: ${tasks[i]}`;
+      }
+        removeIndex = prompt(`Please enter a number to remove:\n${tasks}`) - 1;
+        if (removeIndex >= 0 && removeIndex < tasks.length) { // if less than or equal to zero AND  less than the current number of tasks
+        removeTasks = tasks.splice(removeIndex,1); // removes 1 task from the tasks menu
+        };
+    };
+
+  } else {
+    prompt(startMenu); // displays the menu if none of the other condition are met
   }
   break;
-}
-//-----------------YASH'S SANDBOX---------------------------
-
-while (userInput.toUpperCase() !== "CLOSE") {
-if (userInput.toUpperCase() === "TASK")
-for (task of tasks) {
-showTasks = showTasks + `${task}\n`
-}
 }
