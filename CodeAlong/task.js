@@ -29,13 +29,14 @@ let num;
 let removed;
 
 // Displays the menu for the user to select an option. Also, sets the user's response to the userInput variable
-let userInput = prompt(menu);
+// Using the toUpperCase method to convert the user's response to UPPERCASE
+let userInput = prompt(menu).toUpperCase();
 
-// Loops and continues to display the menu until the user ends/closes the Task Manager (AKA Until the user enters CLOSE)
-while (userInput.toUpperCase() !== `CLOSE`){
+// Loops and continues to display the menu until the user ends/closes the Task Manager (AKA Until the user enters CLOSE) (UPPERCASE or lowercase)
+while (userInput !== `CLOSE`){
 
-  // Checks if user entered TASKS
-  if (userInput.toUpperCase() === `TASKS`){
+  // Checks if user entered TASKS (UPPERCASE or lowercase)
+  if (userInput === `TASKS`){
 
     // The For Of loop is used here to concatenate each task (AKA Item) in the tasks array to the showTasks string variable
     for (task of tasks){
@@ -51,8 +52,8 @@ while (userInput.toUpperCase() !== `CLOSE`){
     showTasks = ``;
   }
   
-  // Checks if user entered NEW
-  if (userInput.toUpperCase() === `NEW`){
+  // Checks if user entered NEW (UPPERCASE or lowercase)
+  if (userInput === `NEW`){
 
     // Prompts the user to enter a new task and stores their response
     newTask = prompt(`Please enter the new task:`);
@@ -64,8 +65,8 @@ while (userInput.toUpperCase() !== `CLOSE`){
     tasks.push(newTask);
   }
 
-  // Checks if the user entered REMOVE
-  if (userInput.toUpperCase() === `REMOVE`){
+  // Checks if the user entered REMOVE (UPPERCASE or lowercase)
+  if (userInput === `REMOVE`){
 
     // Concatenates each task/item in the tasks array to the showTasks string variable. Also, sets/displays a number for each task.
     for(i = 0; i < tasks.length; i++){
@@ -91,7 +92,8 @@ while (userInput.toUpperCase() !== `CLOSE`){
   }
 
   // Displays the menu again
-  userInput = prompt(menu);
+  // Using the toUpperCase method to convert the user's response to UPPERCASE
+  userInput = prompt(menu).toUpperCase();
 }
 
 // Alerts the user that they have closed the program
